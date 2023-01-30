@@ -1,0 +1,25 @@
+{
+  "name": "elance",
+  "version": "1.0.0",
+  "description": "elance-site",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node backend/index",
+    "index": "nodemon backend/index",
+    "client": "npm start --prefix frontend",
+    "dual": "concurrently \"npm run index\" \"npm run client\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@material-ui/lab": "^4.0.0-alpha.61",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.20"
+  }
+}
