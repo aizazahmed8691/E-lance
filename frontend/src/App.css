@@ -260,6 +260,21 @@ Form .mr-lg-0 {
 .radiobtn{
     line-height: 30px;
 }
+.gig2{
+  margin-top: 30px;
+  width: 60%;
+}
+.gig2line{
+  border-color: darkgray;
+  height: 1px;
+}
+.gig2 h5{
+  margin-top: 17px;
+}
+.gig2 .hkl{
+  text-align: center;
+  
+}
 @media screen and (max-width: 1298px) {
   .searchBar {
     display: none;

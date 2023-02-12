@@ -28,7 +28,7 @@ const UserHeader = () => {
               <a href="/">Order</a>
             </li>
             <li>
-              <a href="/">Gigs</a>
+              <a href="/gigs">Gigs</a>
             </li>
             <li>
               <a href="/">Analytics</a>
