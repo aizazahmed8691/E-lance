@@ -117,15 +117,16 @@ const Header = () => {
               </a>
             </li>
             <li
-              className={
-                navbar ? "singinli linkcolor" : "singinli disactivecolor"
-              } onClick={handleOpen}
-            >
-              Sign In
+              // className={
+              //   navbar ? "singinli linkcolor" : "singinli disactivecolor"
+              // } onClick={handleOpen}
+            ><a href="/signin">
+              <Button style={{fontSize:'12px'}} variant="dark">Sign In</Button>
+              </a>
             </li>
             <li className="bli">
               <a href="/join">
-                <Button variant="outline-success">Join</Button>{''}
+                <Button variant="dark">Join</Button>{''}
               </a>
             </li>
           </ul>
