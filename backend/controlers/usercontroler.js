@@ -19,6 +19,8 @@ const authUser=asyncHandler(async(req,res)=>{
     }
 })
 const registerUser=asyncHandler(async(req,res)=>{
+    console.log("apiiii")
+    console.log(req.body)
     const{name,email,password,buyer}=req.body;
     const userExists=await User.findOne({email})
     if(userExists){

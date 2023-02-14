@@ -5,9 +5,14 @@ import gigRoutes from './routes/gigRoutes.js'
 import getjobRoutes from './routes/getjobRoutes.js'
 import jobRoute from './routes/jobRoutes.js'
 import userRoutes from './routes/userRoutes.js'
+// const cors = require('cors')
+import cors from 'cors'
+
 dotenv.config()
 connectDB()
 const app=express()
+
+app.use(cors())
 app.use(express.json())
 
 app.get('/', (req,res)=>{

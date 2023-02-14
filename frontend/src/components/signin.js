@@ -2,6 +2,7 @@ import React, {useState,useEffect} from "react";
 
 import {useNavigate} from 'react-router-dom'
 import {Form, Button} from 'react-bootstrap'
+import Axios from "axios";
 const SigninForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -15,37 +16,42 @@ const SigninForm = () => {
    const user= localStorage.getItem('userInfo')
     if(user){
         if(user.buyer){
-            history('/buyer')
+            history('/user-buyer')
         }else{
-            history('/seller')
+            history('/user')
         }
     }
     },[history])
 
  const submitHandler = (e) =>{
     e.preventDefault()
-    // dispatch(login(email,password))
-    fetch("http://localhost:5000/user/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            email: email,
-            password: password,
-        }),
-    })
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data);
-            localStorage.setItem('userInfo',JSON.stringify(data))
-            if(data.buyer){
-                history('/buyer')
+    try{
+        fetch('http://localhost:5000/user/login',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({
+                email,
+                password
+            })
+        }).then(res=>res.json())
+        .then(data=>{
+            if(data.error){
+                console.log(data.error)
             }else{
-                history('/seller')
+                localStorage.setItem('userInfo',JSON.stringify(data))
+                if(data.buyer){
+                    history('/user-buyer')
+                }else{
+                    history('/user  ')
+                }
             }
-        }
-        );
+        })
+
+    }catch(error){
+        console.log(error)
+    }
         
  }
     return (
